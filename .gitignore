@@ -1,0 +1,8 @@
+# ignore all files in the current directory
+/*
+
+# add .gitignore to the repository
+!.gitignore
+
+# add all .custom.
+*.custom.*
