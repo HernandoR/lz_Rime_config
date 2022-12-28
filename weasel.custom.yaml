@@ -2,7 +2,8 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Wed Dec 28 13:18:04 2022"
+  modified_time: "Wed Dec 28 14:04:34 2022"
   rime_version: 1.5.3
 patch:
-  "style/color_scheme": doraemon
+  "style/color_scheme": brisk
+  "style/horizontal": true

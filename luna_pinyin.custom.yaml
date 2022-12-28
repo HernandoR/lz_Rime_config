@@ -83,3 +83,8 @@ patch:
     # 簡拼
     - abbrev/^([a-z]).+$/$1/
     - abbrev/^([zcs]h).+$/$1/
+__patch:
+# Rx: BlindingDark/rime-easy-en:customize:schema {
+  - patch/+:
+      __include: easy_en:/patch
+# }

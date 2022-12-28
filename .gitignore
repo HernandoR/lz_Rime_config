@@ -8,12 +8,11 @@
 !*.custom.*
 
 # add personal scripts
-!scripts/*.sh
+!/scripts
 
 !/custom_phrase.txt
 
 # add some other files
 !README.md
 !LICENSE
-
 
