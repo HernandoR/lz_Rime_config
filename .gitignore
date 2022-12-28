@@ -6,3 +6,6 @@
 
 # add all .custom.
 !*.custom.*
+
+# add personal scripts
+!scripts/*.sh
