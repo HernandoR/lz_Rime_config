@@ -1,0 +1,68 @@
+# luna_pinyin.custom.yaml
+#
+# 補靪功能：將朙月拼音的詞庫修改爲朙月拼音擴充詞庫，可區分尖團及東庚等韻脣音字
+#
+# 作者：瑾昀 <cokunhui@gmail.com>、雪齋 <lyc20041@gmail.com>
+#
+# 部署位置：
+# ~/.config/ibus/rime  (Linux)
+# ~/Library/Rime  (Mac OS)
+# %APPDATA%\Rime  (Windows)
+#
+# 於重新部署後生效
+#
+# 注意：其他可與朙月拼音共用詞庫的方案（如雙拼方案、朙月拼音・簡化字方案）也可使用本擴充詞庫。只須將本custom.yaml的前面名字改爲對應的輸入方案名字然後放入用戶文件夾重新部署即可。如luna_pinyin_simp.custom.yaml
+#
+#
+
+patch:
+  # 載入朙月拼音擴充詞庫
+  "translator/dictionary": luna_pinyin_ziam_tuan.extended
+  "translator/preedit_format":
+    - xform/v/ü/
+    - xform/ii/ï/
+    # 兼容中州羅馬字 {
+    #- "xform/([zcs]h?|r)y/$1ï/"
+    # }
+  "reverse_lookup/comment_format":
+    - xform/v/ü/
+    - xform/ii/ï/
+  "speller/algebra":
+    - "erase/^xx$/"
+    # 設置模糊音
+    - "derive/^([nl])ve$/$1ue/"
+    - "derive/[zg]([iv])/j$1/"
+    - "derive/[ck]([iv])/q$1/"
+    - "derive/[sh]([iv])/x$1/"
+    - "derive/^([jqxy])v/$1u/"
+    - "derive/([zcs]h|r)ii$/$1i/"
+    - "derive/m$/n/"
+    - "derive/ia([mn])$/ie$1/"
+    - "derive/([bpmfw])ong/$1eng/"
+    - "derive/un$/uen/"
+    - "derive/ui$/uei/"
+    - "derive/iu$/iou/"
+    # 兼容中州羅馬字 {
+    #- "derive/^([nlzcs])ong$/$1iong/"
+    #- "derive/^yong$/yvng/"
+    #- "derive/iong$/vng/"
+    #- "derive/^([jqx])iong$/$1ung/"
+    #- "derive/ong$/ung/"
+    #- "derive/^we([in])/wu$1/"
+    #- "derive/ao$/au/"
+    #- "derive/ve$/vo/"
+    #- "derive/^([jqxy])ve$/$1uo/"
+    #- "derive/([zcs]h?|r)ii$/$1y/"
+    #- "derive/([zcs]h|r)u$/$1v/"
+    #- "derive/([fw])ei$/$1i/"
+    #- "derive/([nlw])ei$/$1ui/"
+    # }
+    # 糾錯
+    - "derive/([aeiou])ng$/$1gn/"
+    - "derive/([dtngkhrzcs])o(u|ng)$/$1o/"
+    - "derive/ong$/on/"
+    - "derive/ao$/oa/"
+    - "derive/([iu])a([ou]|ng?)$/a$1$2/"
+    # 簡拼
+    - abbrev/^([a-z]).+$/$1/
+    - abbrev/^([zcs]h).+$/$1/

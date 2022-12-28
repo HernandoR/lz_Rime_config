@@ -1,0 +1,8 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Wed Dec 28 12:05:15 2022"
+  rime_version: 1.5.3
+patch:
+  "style/color_scheme": google_plus
