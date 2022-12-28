@@ -29,6 +29,8 @@
 patch:
   __include: easy_en:/patch
   # 載入朙月拼音擴充詞庫
+  easy_en/enable_sentence: false
+  easy_en/initial_quality: 0
   "translator/dictionary": luna_pinyin.extended
   "speller/algebra/@before 0": xform/^([b-df-hj-np-tv-z])$/$1_/
   "speller/algebra":
@@ -94,6 +96,6 @@ patch:
     #- "xform/([zcs]h?|r)y/$1ï/"
     # }
   "reverse_lookup/comment_format":
-    - xform/v/ü/
+    - xform/v/ü/ 
     - xform/ii/ï/
     
