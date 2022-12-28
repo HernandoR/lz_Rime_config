@@ -29,19 +29,28 @@ patch:
     - xform/ii/ï/
   "speller/algebra":
     - "erase/^xx$/"
-    # 設置模糊音
-    - "derive/^([nl])ve$/$1ue/"
-    - "derive/[zg]([iv])/j$1/"
-    - "derive/[ck]([iv])/q$1/"
-    - "derive/[sh]([iv])/x$1/"
-    - "derive/^([jqxy])v/$1u/"
-    - "derive/([zcs]h|r)ii$/$1i/"
-    - "derive/m$/n/"
-    - "derive/ia([mn])$/ie$1/"
-    - "derive/([bpmfw])ong/$1eng/"
-    - "derive/un$/uen/"
-    - "derive/ui$/uei/"
-    - "derive/iu$/iou/"
+    
+    # - "derive/^([nl])ve$/$1ue/"
+    # - "derive/[zg]([iv])/j$1/"
+    # - "derive/[ck]([iv])/q$1/"
+    # - "derive/[sh]([iv])/x$1/"
+    # - "derive/^([jqxy])v/$1u/"
+    # - "derive/([zcs]h|r)ii$/$1i/"
+    # - "derive/m$/n/"
+    # - "derive/ia([mn])$/ie$1/"
+    # - "derive/([bpmfw])ong/$1eng/"
+    # - "derive/un$/uen/"
+    # - "derive/ui$/uei/"
+    # - "derive/iu$/iou/"
+    # 设置模糊音
+    - derive/^([zcs])h/$1/             # zh, ch, sh => z, c, s
+    - derive/^([zcs])([^h])/$1h$2/     # z, c, s => zh, ch, sh
+
+    - derive/^n/l/                     # n => l
+    - derive/^l/n/                     # l => n
+    - derive/([ei])n$/$1ng/            # en => eng, in => ing
+    - derive/([ei])ng$/$1n/            # eng => en, ing => in
+
     # 兼容中州羅馬字 {
     #- "derive/^([nlzcs])ong$/$1iong/"
     #- "derive/^yong$/yvng/"
@@ -57,12 +66,20 @@ patch:
     #- "derive/([fw])ei$/$1i/"
     #- "derive/([nlw])ei$/$1ui/"
     # }
-    # 糾錯
-    - "derive/([aeiou])ng$/$1gn/"
-    - "derive/([dtngkhrzcs])o(u|ng)$/$1o/"
-    - "derive/ong$/on/"
-    - "derive/ao$/oa/"
-    - "derive/([iu])a([ou]|ng?)$/a$1$2/"
+
+    # 以下是一組容錯拼寫，《漢語拼音》方案以前者爲正
+    - derive/^([nl])ve$/$1ue/          # nve = nue, lve = lue
+    - derive/^([jqxy])u/$1v/           # ju = jv,
+    - derive/un$/uen/                  # gun = guen,
+    - derive/ui$/uei/                  # gui = guei,
+    - derive/iu$/iou/                  # jiu = jiou,
+
+    # 设置误输入
+    - derive/([aeiou])ng$/$1gn/        # dagn => dang 
+    - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
+    - derive/ong$/on/                  # zhonguo => zhong guo
+    - derive/ao$/oa/                   # hoa => hao
+    - derive/([iu])a(o|ng?)$/a$1$2/    # tain => tian
     # 簡拼
     - abbrev/^([a-z]).+$/$1/
     - abbrev/^([zcs]h).+$/$1/
