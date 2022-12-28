@@ -10,3 +10,10 @@
 # add personal scripts
 !scripts/*.sh
 
+!/custom_phrase.txt
+
+# add some other files
+!README.md
+!LICENSE
+
+

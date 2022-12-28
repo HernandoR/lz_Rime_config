@@ -1,4 +1,10 @@
 #!/bin/bash
+###
+ # @Date: 2022-12-28 13:46:35
+ # @LastEditors: Hernando lzhen.dev@outlook.com
+ # @LastEditTime: 2022-12-28 13:49:07
+ # @FilePath: \Rime\scripts\install_extended_dicts.sh
+### 
 
 # This script installs the extended dictionaries for the rime input method.
 # should be run from the scripts path of the project
