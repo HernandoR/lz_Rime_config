@@ -1,0 +1,20 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin.userdb
+#@/db_type	userdb
+#@/rime_version	1.5.3
+#@/tick	11
+#@/user_id	d9e636ce-0db8-45aa-b71f-3ad2837b58d8
+bang ding 	綁定	c=1 d=1 t=9
+gong neng 	功能	c=1 d=1 t=7
+jin yong 	禁用	c=1 d=1 t=6
+mo hu 	模糊	c=0 d=0.1 t=3
+mo hu yin 	模糊音	c=2 d=1.99501 t=5
+wei xin 	微信	c=1 d=1 t=10
+wen jian jia 	文件夾	c=0 d=0.1 t=1
+wu fa 	無法	c=1 d=1 t=8
+yin 	音	c=0 d=0.1 t=3
+zeng jia 	增加	c=1 d=1 t=1
+zhang hao 	帳號	c=1 d=1 t=11
+zhong hua 	中華	c=1 d=1 t=3
+zi 	子	c=0 d=0.1 t=1
+zi wen jian jia 	子文件夾	c=1 d=1 t=2

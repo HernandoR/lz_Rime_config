@@ -1,0 +1,12 @@
+# Rime user dictionary
+#@/db_name	easy_en.userdb
+#@/db_type	userdb
+#@/rime_version	1.5.3
+#@/tick	7
+#@/user_id	d9e636ce-0db8-45aa-b71f-3ad2837b58d8
+configure 	configure	c=2 d=1.99501 t=2
+deriving 	deriving	c=1 d=1 t=5
+let 	let	c=1 d=1 t=3
+new 	new	c=1 d=1 t=6
+the 	the	c=1 d=1 t=4
+words 	words	c=1 d=1 t=7

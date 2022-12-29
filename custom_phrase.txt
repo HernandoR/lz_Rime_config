@@ -19,3 +19,4 @@
 # http://code.google.com/p/rimeime/	rime	1
 # no comment
 WTF wtf 3
+lzhen.cn@outlook.com    lzhen.cn@outlook.com    100

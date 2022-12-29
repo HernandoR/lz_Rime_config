@@ -1,0 +1,101 @@
+# luna_pinyin.custom.yaml
+#
+# 補靪功能：將朙月拼音的詞庫修改爲朙月拼音擴充詞庫
+#
+# 作者：瑾昀 <cokunhui@gmail.com>
+#
+# 部署位置：
+# ~/.config/ibus/rime  (Linux)
+# ~/Library/Rime  (Mac OS)
+# %APPDATA%\Rime  (Windows)
+#
+# 於重新部署後生效
+#
+#
+# 注意：本補靪適用於所有朙月拼音系列方案（「朙月拼音」、「朙月拼音·简化字」、「朙月拼音·臺灣正體」、「朙月拼音·語句流」）。
+# 只須將本 custom.yaml 的前面名字改爲對應的輸入方案名字然後放入用戶文件夾重新部署即可。如 luna_pinyin_simp.custom.yaml。
+# 雙拼用戶請使用 double_pinyin.custom.yaml。
+#
+#
+#
+# 附朙月拼音系列方案與其對應的 id 一覽表：
+# 輸入方案	id
+# 朙月拼音	luna_pinyin
+# 朙月拼音·简化字	luna_pinyin_simp
+# 朙月拼音·臺灣正體	luna_pinyin_tw
+# 朙月拼音·語句流	luna_pinyin_fluency
+#
+
+patch:
+  __include: easy_en:/patch
+  # 載入朙月拼音擴充詞庫
+  easy_en/enable_sentence: false
+  easy_en/initial_quality: 0
+  "translator/dictionary": luna_pinyin.extended
+  "speller/algebra/@before 0": xform/^([b-df-hj-np-tv-z])$/$1_/
+  "speller/algebra":
+    - "erase/^xx$/"
+    # - "derive/^([nl])ve$/$1ue/"
+    # - "derive/[zg]([iv])/j$1/"
+    # - "derive/[ck]([iv])/q$1/"
+    # - "derive/[sh]([iv])/x$1/"
+    # - "derive/^([jqxy])v/$1u/"
+    # - "derive/([zcs]h|r)ii$/$1i/"
+    # - "derive/m$/n/"
+    # - "derive/ia([mn])$/ie$1/"
+    # - "derive/([bpmfw])ong/$1eng/"
+    # - "derive/un$/uen/"
+    # - "derive/ui$/uei/"
+    # - "derive/iu$/iou/"
+    # 设置模糊音
+    - derive/^([zcs])h/$1/             # zh, ch, sh => z, c, s
+    - derive/^([zcs])([^h])/$1h$2/     # z, c, s => zh, ch, sh
+    - derive/^n/l/                     # n => l
+    - derive/^l/n/                     # l => n
+    - derive/([ei])n$/$1ng/            # en => eng, in => ing
+    - derive/([ei])ng$/$1n/            # eng => en, ing => in
+
+    # 兼容中州羅馬字 {
+    #- "derive/^([nlzcs])ong$/$1iong/"
+    #- "derive/^yong$/yvng/"
+    #- "derive/iong$/vng/"
+    #- "derive/^([jqx])iong$/$1ung/"
+    #- "derive/ong$/ung/"
+    #- "derive/^we([in])/wu$1/"
+    #- "derive/ao$/au/"
+    #- "derive/ve$/vo/"
+    #- "derive/^([jqxy])ve$/$1uo/"
+    #- "derive/([zcs]h?|r)ii$/$1y/"
+    #- "derive/([zcs]h|r)u$/$1v/"
+    #- "derive/([fw])ei$/$1i/"
+    #- "derive/([nlw])ei$/$1ui/"
+    # }
+
+    # 以下是一組容錯拼寫，《漢語拼音》方案以前者爲正
+    - derive/^([nl])ve$/$1ue/          # nve = nue, lve = lue
+    - derive/^([jqxy])u/$1v/           # ju = jv,
+    - derive/un$/uen/                  # gun = guen,
+    - derive/ui$/uei/                  # gui = guei,
+    - derive/iu$/iou/                  # jiu = jiou,
+
+    # 设置误输入
+    - derive/([aeiou])ng$/$1gn/        # dagn => dang 
+    - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
+    - derive/ong$/on/                  # zhonguo => zhong guo
+    - derive/ao$/oa/                   # hoa => hao
+    - derive/([iu])a(o|ng?)$/a$1$2/    # tain => tian
+    # 簡拼
+    - abbrev/^([a-z]).+$/$1/
+    - abbrev/^([zcs]h).+$/$1/
+    
+
+  "translator/preedit_format":
+    - xform/v/ü/
+    - xform/ii/ï/
+    # 兼容中州羅馬字 {
+    #- "xform/([zcs]h?|r)y/$1ï/"
+    # }
+  "reverse_lookup/comment_format":
+    - xform/v/ü/ 
+    - xform/ii/ï/
+    
